@@ -3,7 +3,7 @@
   const courseIntro = [
     "Som blivande röntgensjuksköterska eller biomedicinsk analytiker med inriktning fysiologi möter du läkemedel i flera delar av arbetet. Det kan vara kontrastmedel vid en radiologisk undersökning eller ett läkemedel vid en farmakologisk belastning. Även läkemedel patienten redan använder kan vara relevanta för förberedelserna och säkerheten kring undersökningen.",
     "Säker läkemedelshantering omfattar hela förloppet: att förstå ordinationen, göra i ordning och ge läkemedlet, dokumentera det som utförts och följa patientens tillstånd. Du behöver därför förena kunskaper om anatomi, fysiologi och farmakologi med praktiska färdigheter. Patientens berättelse, till exempel om en tidigare reaktion, kan vara viktig information att föra vidare.",
-    "I de fyra delarna går du från ansvar och behörighet till kontroller, beräkningar, administrering och uppföljning. Börja med introduktionen, lyssna på podden och använd läsanvisningarna och situationerna för att pröva ditt resonemang. Som student deltar du under tillsyn av behörig legitimerad personal. Stanna upp och be om stöd när något är oklart."
+    "I denna modul om Läkemedelshantering ingår fyra delar – Ansvar, behörighet och studentrollen, Innan läkemedlet ges, Från ordination till säker administrering samt Efter administreringen fortsätter ansvaret. Börja med att läsa introduktionen i varje del, lyssna sedan på podden och använd läsanvisningarna för att pröva ditt resonemang."
   ];
   const parts = [
     {
@@ -24,7 +24,8 @@
         ["Vårdhandboken – Ansvar", "Läs om ansvarsfördelningen vid ordination och hantering av läkemedel. Fundera på hur verksamhetens rutiner stödjer personalens arbete.", "https://www.vardhandboken.se/vard-och-behandling/lakemedelsbehandling/lakemedelshantering/ansvar/"],
         ["HSLF-FS 2017:37", "Använd den senaste konsoliderade versionen. Fokusera på rutiner, professionernas behörighet och studenternas deltagande under VFU.", "https://www.socialstyrelsen.se/kunskapsstod-och-regler/regler-och-riktlinjer/foreskrifter-och-allmanna-rad/konsoliderade-foreskrifter/201737-om-ordination-och-hantering-av-lakemedel-i-halso--och-sjukvarden/"],
         ["Läkemedelsrelaterade skador", "Läs om riskerna i läkemedelsprocessen och hur hantering, informationsöverföring och uppföljning hänger ihop.", "https://patientsakerhet.socialstyrelsen.se/risker-och-vardskador/vardskador/lakemedelsrelaterade-skador/"],
-        ["Patientsäkerhetslagen", "Fokusera på personalens skyldigheter, ansvar för arbetsuppgifterna och rapportering av risker och händelser.", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/patientsakerhetslag-2010659_sfs-2010-659/"]
+        ["Patientsäkerhetslagen", "Fokusera på personalens skyldigheter, ansvar för arbetsuppgifterna och rapportering av risker och händelser.", "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/patientsakerhetslag-2010659_sfs-2010-659/"],
+        ["Säker läkemedelsberäkning: dos, styrka, mängd", "Läs inledningen och kapitel 1."]
       ]
     },
     {
@@ -108,7 +109,8 @@
   function renderPart(part) {
     const paragraphs = part.intro.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("");
     const sources = part.source.map(function (item) {
-      return '<article class="source-item"><div><h3>' + esc(item[0]) + '</h3><p>' + esc(item[1]) + '</p></div><a class="source-link" href="' + esc(item[2]) + '" target="_blank" rel="noopener noreferrer">Läs vidare <span aria-hidden="true">↗</span></a></article>';
+      const link = item[2] ? '<a class="source-link" href="' + esc(item[2]) + '" target="_blank" rel="noopener noreferrer">Läs vidare <span aria-hidden="true">↗</span></a>' : '';
+      return '<article class="source-item"><div><h3>' + esc(item[0]) + '</h3><p>' + esc(item[1]) + '</p></div>' + link + '</article>';
     }).join("");
     const focus = part.focus.map(function (item) { return '<div class="focus-item"><span aria-hidden="true">✳</span><p>' + esc(item) + '</p></div>'; }).join("");
     const scenarios = part.scenarios.map(function (item) { return '<article class="scenario-card"><span class="scenario-label">' + esc(item[0]) + '</span><p>' + esc(item[1]) + '</p></article>'; }).join("");
